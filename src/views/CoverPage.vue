@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from 'vue'
+import Cover from '../components/Header.vue'
 </script>
 
 <template>
+    <Cover/>
 </template>
 
 <style scoped>
