@@ -1,13 +1,16 @@
 <script setup>
-import { ref } from 'vue'
 </script>
 
 <template>
     <div>
         Legitiment Express
-        <button @click="test">Login</button>
+        <RouterLink :to="{ name: 'Login'}">test</RouterLink>
     </div>
 </template>
 
 <style scoped>
+div {
+    margin:20px;
+    border: solid black 5px;
+}
 </style>
