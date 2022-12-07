@@ -4,7 +4,6 @@ import { store } from "../store/index.js";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
-
 const router = useRouter();
 const account = store();
 const userin = ref("");
@@ -15,7 +14,7 @@ const { user, password } = storeToRefs(account);
 const login = () => {
   if (userin.value === user.value && passin.value === password.value) {
     console.log("among us");
-    router.push("./");
+    router.push("./WebPage");
   } else {
     error.value = true;
     console.log(error.value);
@@ -30,6 +29,7 @@ const login = () => {
     <input type="password" placeholder="Password" v-model="passin" />
     <input type="submit" value="Login" />
   </form>
+  <div v-if="error">User/Pass wrong</div>
 </template>
 
 <style scoped>
