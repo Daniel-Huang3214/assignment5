@@ -4,6 +4,9 @@ import { ref } from "vue";
 
 let movie = ref(false);
 
+const test = () => {
+  console.log(movie);
+}
 const onChange = () => {
   axios
     .get(`https://api.themoviedb.org/3/trending/all/day`, {
@@ -13,7 +16,7 @@ const onChange = () => {
     })
     .then((movieData) => {
       movie.value = movieData.data.results;
-      console.log(movieData.data);
+      console.log(movie.value.at(0));
     });
 };
 </script>
@@ -22,7 +25,7 @@ const onChange = () => {
   <div>
     <button @click="onChange">aead</button>
   </div>
-  <li v-for="result in movie">{{ result.backdrop_path }}</li>
+  <div v-for="(result, index) in movie"> <button  @click="test"><img v-bind:src="`https://image.tmdb.org/t/p/w500/${ result.backdrop_path }`"/> <p>{{ result.id }}</p></button></div>
 </template>
 
 <style scoped>
