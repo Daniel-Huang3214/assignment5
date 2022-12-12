@@ -6,37 +6,30 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const store = useStore();
-let movieData = ref("");
 
 const purchases = () => {
   console.log(store.movies);
   router.push("./Checkout");
 }
-const openDiv = async (test) => {
-  movieData.value = (
-    await axios.get(`https://api.themoviedb.org/3/movie/${test}`, {
-      params: {
-        api_key: "e8016904e176c4cc2f25acfd19077f5c",
-        include_adult: "false",
-      },
-    })
-  ).data.title;
-  store.purchased.push(movieData.value);
+const purchased = async (movieTitle) => {
+  store.purchased.push(movieTitle);
   console.log(store.purchased);
 };
 </script>
 
 <template>
-  <div>
-    <button @click="purchases">Cart</button>
-  </div>
-  <div v-for="result in store.movies">
-    <button @click="openDiv(result.id)">
-      <img
-        v-bind:src="`https://image.tmdb.org/t/p/w500/${result.poster}`"
-      />
-      <p>{{ result.id }}</p>
-    </button>
+  <div class="main-container">
+      <div>
+        <button @click="purchases">Cart</button>
+      </div>
+      <div class="movie-container">
+      <div v-for="result in store.movies" class="movie">
+        <img v-bind:src="`https://image.tmdb.org/t/p/w500/${result.poster}`" />
+        <p>{{ result.title }}</p>
+        <p>{{ result.release }}</p>
+        <button @click="purchased(result.title)">Purchase</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -45,9 +38,22 @@ div {
   margin: 20px;
   border: solid black 5px;
 }
-</style>
 
-<!-- 
-store.$patch pinia
-pinia store push 
--->
+.main-container {
+  background-color: #e9ceac;
+}
+.movie-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: 100px 100px 100px 100px;
+  grid-row-gap: 400px;
+}
+
+img {
+  width: 14vw;
+  height: 30vh;
+}
+
+.movie {
+}
+</style>

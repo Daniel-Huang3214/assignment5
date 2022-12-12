@@ -3,8 +3,14 @@ import Login from "../components/Login.vue";
 </script>
 
 <template>
-  <Login />
+  <div class="div-container">
+    <Login />
+  </div>
 </template>
 
 <style scoped>
+.div-container {
+  background-color: rgb(68, 68, 68);
+  height: 1000px;
+}
 </style>

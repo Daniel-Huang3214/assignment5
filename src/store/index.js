@@ -22,10 +22,10 @@ export const useStore  = defineStore("store", {
         return {
           id: movie.id,
           poster: movie.poster_path,
+          title: movie.title,
+          release: movie.release_date
         }
       });
-      this.user = "tmbd";
-      this.password = "movies";
     },
   }
 });

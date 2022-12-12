@@ -6,17 +6,31 @@ store.getMovies();
 </script>
 
 <template>
-  <div>
-    Legitiment Express
-    <RouterLink to="/LoginPage" custom v-slot="{ navigate }">
-      <button @click="navigate">Login</button>
+  <div class="header-container">
+    <div>
+      Legitiment Express
+      <RouterLink to="/LoginPage" custom v-slot="{ navigate }">
+        <button @click="navigate">Login</button>
       </RouterLink>
+    </div>
   </div>
 </template>
 
 <style scoped>
-div {
-  margin: 20px;
-  border: solid black 5px;
+.header-container {
+  border: solid rgb(0, 0, 0) 3px;
+  height: 10vh;
+  background-color: #e9ceac;
+}
+
+.header-container div {
+  font-size: 40px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+button {
+  position:absolute;
+  right: 10px;
 }
 </style>

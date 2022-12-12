@@ -23,18 +23,35 @@ const login = () => {
 </script>
 
 <template>
-  <div>{{ user }} {{ password }}</div>
-  <form @submit.prevent="login()">
-    <input type="text" placeholder="Username" v-model="userin" />
-    <input type="password" placeholder="Password" v-model="passin" />
-    <input type="submit" value="Login" />
-  </form>
-  <div v-if="error">User/Pass wrong</div>
+  <div class="login-UI">
+    <form @submit.prevent="login()">
+      <input type="text" placeholder="Username" v-model="userin" />
+      <input type="password" placeholder="Password" v-model="passin" />
+      <input type="submit" value="Login" />
+    </form>
+    <div v-if="error" class="error">User/Pass wrong</div>
+  </div>
 </template>
 
 <style scoped>
+
 div {
+  background-color: #e9ceac;
+}
+.login-UI {
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 50px 50px 50px;
+  display: grid;
   margin: 20px;
-  border: solid black 5px;
+  border: solid black 3px;
+
+}
+.error {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+form {
+  grid-column-start: 2;
+  grid-row-start: 2;
 }
 </style>
