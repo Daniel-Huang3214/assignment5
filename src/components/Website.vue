@@ -1,34 +1,39 @@
 <script setup>
 import axios from "axios";
-import { ref } from "vue";
+import { ref } from 'vue';
+import { useStore } from "../store/index.js";
+import { useRouter } from "vue-router";
 
-let movie = ref(false);
+const router = useRouter();
+const store = useStore();
+let movieData = ref("");
 
-const test = () => {
-  console.log(movie);
-};
-const onChange = () => {
-  axios
-    .get(`https://api.themoviedb.org/3/trending/all/day`, {
+const purchases = () => {
+  console.log(store.movies);
+  router.push("./Checkout");
+}
+const openDiv = async (test) => {
+  movieData.value = (
+    await axios.get(`https://api.themoviedb.org/3/movie/${test}`, {
       params: {
-        api_key: "0dcabfe51b80fa2de3e80d7d256e0e81",
+        api_key: "e8016904e176c4cc2f25acfd19077f5c",
+        include_adult: "false",
       },
     })
-    .then((movieData) => {
-      movie.value = movieData.data.results;
-      console.log(movie.value.at(0));
-    });
+  ).data.title;
+  store.purchased.push(movieData.value);
+  console.log(store.purchased);
 };
 </script>
 
 <template>
   <div>
-    <button @click="onChange">aead</button>
+    <button @click="purchases">Cart</button>
   </div>
-  <div v-for="(result, index) in movie">
-    <button @click="test">
+  <div v-for="result in store.movies">
+    <button @click="openDiv(result.id)">
       <img
-        v-bind:src="`https://image.tmdb.org/t/p/w500/${result.backdrop_path}`"
+        v-bind:src="`https://image.tmdb.org/t/p/w500/${result.poster}`"
       />
       <p>{{ result.id }}</p>
     </button>

@@ -11,4 +11,5 @@ import Bottom from "../components/Bottom.vue";
 </template>
 
 <style scoped>
+
 </style>
