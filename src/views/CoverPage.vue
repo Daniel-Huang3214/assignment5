@@ -1,12 +1,12 @@
 <script setup>
-import Top from "../components/Top.vue";
+import Hero from "../components/Hero.vue";
 import Middle from "../components/Middle.vue";
 import Bottom from "../components/Bottom.vue";
 </script>
 
 <template>
   <div class="div-container">
-    <Top />
+    <Hero />
     <Middle />
     <Bottom />
   </div>

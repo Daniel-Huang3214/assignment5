@@ -11,6 +11,6 @@ import Login from "../components/Login.vue";
 <style scoped>
 .div-container {
   background-color: rgb(68, 68, 68);
-  height: 1000px;
+  height: 100vh;
 }
 </style>

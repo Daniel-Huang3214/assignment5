@@ -20,7 +20,7 @@ const purchased = async (movieTitle) => {
 <template>
   <div class="main-container">
       <div>
-        <button @click="purchases">Cart</button>
+        <button @click="purchases" class="purchase">Cart</button>
       </div>
       <div class="movie-container">
       <div v-for="result in store.movies" class="movie">
@@ -36,17 +36,20 @@ const purchased = async (movieTitle) => {
 <style scoped>
 div {
   margin: 20px;
-  border: solid black 5px;
 }
 
 .main-container {
   background-color: #e9ceac;
+  border: solid black 5px;
+  height: 225vh;
 }
 .movie-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   grid-template-rows: 100px 100px 100px 100px;
   grid-row-gap: 400px;
+  border: solid black 5px;
+  height: 215vh;
 }
 
 img {
@@ -54,6 +57,13 @@ img {
   height: 30vh;
 }
 
+.purchase {
+  position: fixed;
+  right: 35px;
+  top: 25px;
+}
 .movie {
+  border: solid black 5px;
+  height: 42vh;
 }
 </style>

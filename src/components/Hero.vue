@@ -25,12 +25,14 @@ store.getMovies();
 
 .header-container div {
   font-size: 40px;
+  font-family: monaco, Consolas, "Lucida Console", monospace;
   text-align: center;
   padding-top: 20px;
 }
 
 button {
   position:absolute;
-  right: 10px;
+  right: 15px;
+  height: 6vh;
 }
 </style>

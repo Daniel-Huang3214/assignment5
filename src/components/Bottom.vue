@@ -17,6 +17,8 @@
 
 <style scoped>
 h2 {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  font-size: 30px;
   text-align: center;
 }
 .grid-container {
@@ -29,6 +31,7 @@ h2 {
   padding: 10px;
 }
 p {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
   display: inline;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);

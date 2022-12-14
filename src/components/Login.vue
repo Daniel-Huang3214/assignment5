@@ -9,8 +9,6 @@ const userin = ref("");
 const passin = ref("");
 const error = ref(false);
 
-const user = account.user;
-const password = account.password
 const login = () => {
   if (userin.value === account.user && passin.value === account.password) {
     console.log("among us");
@@ -24,9 +22,12 @@ const login = () => {
 
 <template>
   <div class="login-UI">
+    <h1>Login</h1>
     <form @submit.prevent="login()">
       <input type="text" placeholder="Username" v-model="userin" />
+      <br>
       <input type="password" placeholder="Password" v-model="passin" />
+      <br>
       <input type="submit" value="Login" />
     </form>
     <div v-if="error" class="error">User/Pass wrong</div>
@@ -40,7 +41,7 @@ div {
 }
 .login-UI {
   grid-template-columns: auto auto auto;
-  grid-template-rows: 50px 50px 50px;
+  grid-template-rows: 200px 200px 200px;
   display: grid;
   margin: 20px;
   border: solid black 3px;
@@ -49,8 +50,16 @@ div {
 .error {
   grid-column-start: 2;
   grid-row-start: 3;
+  text-align: center;
 }
+
+h1 {
+  grid-column-start: 2;
+  text-align: center;
+}
+
 form {
+  text-align: center;
   grid-column-start: 2;
   grid-row-start: 2;
 }
