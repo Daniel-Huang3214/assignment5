@@ -7,4 +7,5 @@ import Website from "../components/Website.vue"
 </template>
 
 <style scoped>
+
 </style>

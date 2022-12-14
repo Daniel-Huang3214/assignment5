@@ -3,7 +3,19 @@ import axios from "axios";
 import { ref } from 'vue';
 import { useStore } from "../store/index.js";
 import { useRouter } from "vue-router";
+import Modal from '../components/Modal.vue';
 
+const showModal = ref(false);
+const selectedId = ref(0);
+
+const openModal = (id) => {
+  showModal.value = true;
+  selectedId.value = id;
+};
+
+const closeModal = () => {
+  showModal.value = false;
+};
 const router = useRouter();
 const store = useStore();
 
@@ -28,7 +40,9 @@ const purchased = async (movieTitle) => {
         <p>{{ result.title }}</p>
         <p>{{ result.release }}</p>
         <button @click="purchased(result.title)">Purchase</button>
+        <button @click="openModal(5000)">Modal</button>
       </div>
+      <Modal v-if="showModal" @toggleModal="closeModal()" :id="selectedId" />
     </div>
   </div>
 </template>
