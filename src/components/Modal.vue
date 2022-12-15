@@ -1,6 +1,14 @@
 <script setup>
+import { useStore } from "../store/index.js";
+
 const props = defineProps(["id"]);
 const emits = defineEmits(["toggleModal"]);
+const store = useStore();
+
+const purchased = async (movieTitle, moviePoster) => {
+  store.purchased.push([movieTitle, moviePoster]);
+  console.log(store.purchased);
+};
 </script>
 
 <template>
@@ -8,13 +16,20 @@ const emits = defineEmits(["toggleModal"]);
     <div class="modal-outer-container" @click.self="emits('toggleModal')">
       <div class="modal-inner-container">
         <button class="close-button" @click="emits('toggleModal')">X</button>
-        <h1>{{ props.id }}</h1>
+        <h1>{{ props.id.at(1) }}</h1>
+        <img v-bind:src="`https://image.tmdb.org/t/p/w500/${props.id.at(2)}`">
+        <p class="release">{{ props.id.at(3) }}</p>
+        <p class="overview">{{ props.id.at(4) }}</p>
+        <button @click="purchased(props.id.at(1), props.id.at(2))" class="purchase">Purchase</button>
       </div>
     </div>
   </Teleport>
 </template>
 
 <style scoped>
+* {
+  color: rgb(233, 233, 233);
+}
 .modal-outer-container {
   position: fixed;
   top: 0;
@@ -29,11 +44,43 @@ const emits = defineEmits(["toggleModal"]);
 }
 
 .modal-outer-container .modal-inner-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   background-color: #1F2123;
-  width: clamp(280px, 100%, 800px);
-  height: 400px;
+  grid-gap: 10px;
+  width: 70vw;
+  height: 75vh;
   position: relative;
 }
+
+.purchase {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  height: 75px;
+  width: 125px;
+  margin: auto;
+  color:black;
+}
+
+img {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  display: inline;
+  height: 50vh;
+  padding-left: 10px;
+}
+.release {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+.overview {
+  padding-top: 40px;
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+
 
 .modal-outer-container .modal-inner-container .close-button {
   position: absolute;
