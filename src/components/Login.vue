@@ -11,11 +11,9 @@ const error = ref(false);
 
 const login = () => {
   if (userin.value === account.user && passin.value === account.password) {
-    console.log("among us");
     router.push("./WebPage");
   } else {
     error.value = true;
-    console.log(error.value);
   }
 };
 </script>

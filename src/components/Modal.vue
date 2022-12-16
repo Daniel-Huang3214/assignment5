@@ -5,9 +5,8 @@ const props = defineProps(["id"]);
 const emits = defineEmits(["toggleModal"]);
 const store = useStore();
 
-const purchased = async (movieTitle, moviePoster) => {
-  store.purchased.push([movieTitle, moviePoster]);
-  console.log(store.purchased);
+const purchased = async (movieTitle, moviePoster, movieId) => {
+  store.purchased.push([movieTitle, moviePoster, movieId]);
 };
 </script>
 
@@ -20,7 +19,7 @@ const purchased = async (movieTitle, moviePoster) => {
         <img v-bind:src="`https://image.tmdb.org/t/p/w500/${props.id.at(2)}`">
         <p class="release">{{ props.id.at(3) }}</p>
         <p class="overview">{{ props.id.at(4) }}</p>
-        <button @click="purchased(props.id.at(1), props.id.at(2))" class="purchase">Purchase</button>
+        <button @click="purchased(props.id.at(1), props.id.at(2), props.id.at(0))" class="purchase">Purchase</button>
       </div>
     </div>
   </Teleport>
@@ -55,12 +54,12 @@ const purchased = async (movieTitle, moviePoster) => {
 }
 
 .purchase {
-  grid-column-start: 2;
-  grid-row-start: 3;
+  position: absolute;
   height: 75px;
   width: 125px;
-  margin: auto;
   color:black;
+  bottom: 10%;
+  right: 43%;
 }
 
 img {
@@ -68,7 +67,8 @@ img {
   grid-row-start: 2;
   display: inline;
   height: 50vh;
-  padding-left: 10px;
+  margin-left: 10px;
+  border: solid black 5px;
 }
 .release {
   grid-column-start: 2;

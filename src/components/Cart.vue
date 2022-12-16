@@ -2,7 +2,6 @@
 import { useStore } from "../store/index.js";
 
 const store = useStore();
-console.log(store.purchased);
 </script>
 
 <template>
@@ -25,6 +24,7 @@ console.log(store.purchased);
   grid-template-columns: 2;
   background-color: #e9ceac;
   border: solid black 5px;
+  padding: 15px;
 }
 .filler {
   grid-column-start: 1;
@@ -52,6 +52,7 @@ img {
   width: 16vw;
   grid-column-start: 1;
   grid-row-start: 1;
+  border: solid black 5px;
 }
 
 h1 {

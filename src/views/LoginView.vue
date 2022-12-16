@@ -10,6 +10,7 @@ import Login from "../components/Login.vue";
 
 <style scoped>
 .div-container {
+  padding: 100px;
   background-color: rgb(68, 68, 68);
   height: 70vh;
 }

@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import CoverPage from "../views/CoverPage.vue";
-import LoginPage from "../views/LoginPage.vue";
-import WebPage from "../views/WebPage.vue";
-import Checkout from "../views/Checkout.vue";
+import CoverPage from "../views/CoverView.vue";
+import LoginPage from "../views/LoginView.vue";
+import WebPage from "../views/WebView.vue";
+import Checkout from "../views/CheckoutView.vue";
 
 const routes = [
   {

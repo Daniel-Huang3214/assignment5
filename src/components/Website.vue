@@ -5,13 +5,13 @@ import { useRouter } from "vue-router";
 import Modal from '../components/Modal.vue';
 
 const showModal = ref(false);
-const selectedId = ref(0);
+const selectedMovie = ref(0);
 const router = useRouter();
 const store = useStore();
 
 const openModal = (id, title, poster, release, overview) => {
   showModal.value = true;
-  selectedId.value = [id, title, poster, release, overview];
+  selectedMovie.value = [id, title, poster, release, overview];
 };
 
 const closeModal = () => {
@@ -19,7 +19,6 @@ const closeModal = () => {
 };
 
 const purchases = () => {
-  console.log(store.movies);
   router.push("./Checkout");
 }
 </script>
@@ -35,7 +34,7 @@ const purchases = () => {
         <img v-bind:src="`https://image.tmdb.org/t/p/w500/${result.poster}`"
           @click="openModal(result.id, result.title, result.poster, result.release, result.overview)" />
       </div>
-      <Modal v-if="showModal" @toggleModal="closeModal()" :id="selectedId" />
+      <Modal v-if="showModal" @toggleModal="closeModal()" :id="selectedMovie" />
     </div>
   </div>
 </template>
@@ -60,7 +59,8 @@ h1 {
   grid-template-rows: 100px 100px 100px 100px;
   grid-row-gap: 200px;
   border: solid black 5px;
-  height: 145vh;
+  background-color: #3f3f3f;
+  height: 140vh;
 }
 
 img {
