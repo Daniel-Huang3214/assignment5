@@ -7,6 +7,7 @@ const store = useStore();
 
 const purchased = async (movieTitle, moviePoster, movieId) => {
   store.purchased.push([movieTitle, moviePoster, movieId]);
+  alert("Thanks for your money");
 };
 </script>
 

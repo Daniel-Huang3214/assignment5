@@ -9,7 +9,7 @@ store.getMovies();
   <div class="header-container">
     <div>
       Legitiment Express
-      <RouterLink to="/LoginPage" custom v-slot="{ navigate }">
+      <RouterLink to="/Login" custom v-slot="{ navigate }">
         <button @click="navigate">Login</button>
       </RouterLink>
     </div>
