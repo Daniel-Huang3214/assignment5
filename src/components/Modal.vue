@@ -30,6 +30,7 @@ const purchased = async (movieTitle, moviePoster, movieId) => {
 * {
   color: rgb(233, 233, 233);
 }
+
 .modal-outer-container {
   position: fixed;
   top: 0;
@@ -58,7 +59,7 @@ const purchased = async (movieTitle, moviePoster, movieId) => {
   position: absolute;
   height: 75px;
   width: 125px;
-  color:black;
+  color: black;
   bottom: 10%;
   right: 43%;
 }
@@ -71,10 +72,12 @@ img {
   margin-left: 10px;
   border: solid black 5px;
 }
+
 .release {
   grid-column-start: 2;
   grid-row-start: 2;
 }
+
 .overview {
   padding-top: 40px;
   grid-column-start: 2;

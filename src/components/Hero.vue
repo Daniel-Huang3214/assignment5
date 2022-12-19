@@ -31,7 +31,7 @@ store.getMovies();
 }
 
 button {
-  position:absolute;
+  position: absolute;
   right: 15px;
   height: 6vh;
 }

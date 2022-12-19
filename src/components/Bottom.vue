@@ -21,6 +21,7 @@ h2 {
   font-size: 30px;
   text-align: center;
 }
+
 .grid-container {
   background-color: #e9ceac;
   margin: 20px;
@@ -30,6 +31,7 @@ h2 {
   grid-gap: 10px;
   padding: 10px;
 }
+
 p {
   font-family: monaco, Consolas, "Lucida Console", monospace;
   display: inline;

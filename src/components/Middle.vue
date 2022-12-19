@@ -31,6 +31,7 @@ h2 {
   top: 200px;
   color: black;
 }
+
 div {
   margin: 20px;
   border: solid black 5px;

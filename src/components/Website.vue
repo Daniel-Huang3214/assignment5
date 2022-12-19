@@ -47,6 +47,7 @@ div {
 h1 {
   text-align: center;
 }
+
 .main-container {
   background-color: #e9ceac;
   border: solid black 5px;

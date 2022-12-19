@@ -33,10 +33,10 @@ const login = () => {
 </template>
 
 <style scoped>
-
 div {
   background-color: #e9ceac;
 }
+
 .login-UI {
   grid-template-columns: auto auto auto;
   grid-template-rows: 200px 200px 200px;
@@ -45,6 +45,7 @@ div {
   border: solid black 3px;
 
 }
+
 .error {
   grid-column-start: 2;
   grid-row-start: 3;
