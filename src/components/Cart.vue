@@ -26,30 +26,26 @@ const store = useStore();
   border: solid black 5px;
   padding: 15px;
 }
-
 .filler {
   grid-column-start: 1;
   grid-row-start: 1;
 }
-
 .filler2 {
   grid-column-start: 2;
   grid-row-start: 1;
 }
-
 .product-container {
   display: grid;
   grid-template-columns: repeat(2, 300px);
 }
 
-h2 {
+h2{
   background-color: #e9ceac;
   border: solid black 5px;
   border-bottom: 0px;
   text-align: center;
   margin: 0px;
 }
-
 img {
   margin-left: 10px;
   height: 35vh;
