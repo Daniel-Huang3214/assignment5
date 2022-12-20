@@ -1,13 +1,15 @@
 <script setup>
 import { useStore } from "../store/index.js";
+import { ref } from "vue"
 
 const props = defineProps(["id"]);
 const emits = defineEmits(["toggleModal"]);
 const store = useStore();
+let bought = ref(false);
 
 const purchased = async (movieTitle, moviePoster, movieId) => {
   store.purchased.push([movieTitle, moviePoster, movieId]);
-  alert("Thanks for your money");
+  bought.value = true;
 };
 </script>
 
@@ -20,6 +22,7 @@ const purchased = async (movieTitle, moviePoster, movieId) => {
         <img v-bind:src="`https://image.tmdb.org/t/p/w500/${props.id.at(2)}`">
         <p class="release">{{ props.id.at(3) }}</p>
         <p class="overview">{{ props.id.at(4) }}</p>
+        <div v-if="bought" class="purchased">Purchased!</div>
         <button @click="purchased(props.id.at(1), props.id.at(2), props.id.at(0))" class="purchase">Purchase</button>
       </div>
     </div>
@@ -31,6 +34,11 @@ const purchased = async (movieTitle, moviePoster, movieId) => {
   color: rgb(233, 233, 233);
 }
 
+.purchased {
+  position: absolute;
+  right: 46%;
+  bottom: 5%;
+}
 .modal-outer-container {
   position: fixed;
   top: 0;
